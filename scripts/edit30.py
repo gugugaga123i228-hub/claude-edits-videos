@@ -6,7 +6,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 CFG = json.load(open(sys.argv[1])); OUT = sys.argv[2]
 PREVIEW = len(sys.argv) > 3 and sys.argv[3] == 'preview'
-W, H, FPS = 1080, 1920, 30
+W, H, FPS = 1080, 1920, CFG.get('fps', 30)
 DUR = CFG['dur']; N = int(round(DUR * FPS))
 A0, B, NB = CFG.get('a0',0), CFG.get('b',0.5), CFG.get('nb',0)
 def T(k): return A0 + B * k
@@ -14,8 +14,10 @@ FIN = T(NB)
 FB = '/usr/share/fonts/opentype/inter/Inter-Black.otf'
 FM = '/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Bold.ttf'
 SF = CFG.get('sf', 30)
-cap = cv2.VideoCapture(CFG['src'])
-LB = CFG.get('lb', 0)
+SRCS = CFG.get('srcs', [[CFG['src'], CFG.get('lb', 0), CFG.get('sf', 30)]])
+CAPS = [cv2.VideoCapture(x[0]) for x in SRCS]
+cap = CAPS[0]
+LB = SRCS[0][1]
 
 # clips: intro [[st,cx],..] spread evenly over [0,A0]; raw [[k,nb,st,cx,(speed)]]
 CL = []
@@ -27,15 +29,17 @@ for r in CFG.get('raw', []):
     CL.append(dict(t0=T(k), t1=T(k+nb), st=st, cx=cx, sp=r[4] if len(r) > 4 else 1.0, intro=False, k=k))
 if 'cuts' in CFG:
     CL = []
-    for t0, t1, st, cx, sp, acc, fl in CFG['cuts']:
-        CL.append(dict(t0=t0, t1=t1, st=st, cx=cx, sp=sp, intro=not fl, k=('A' if acc else None)))
+    for cu in CFG['cuts']:
+        t0, t1, st, cx, sp, acc, fl = cu[:7]; si = cu[7] if len(cu) > 7 else 0
+        CL.append(dict(t0=t0, t1=t1, st=st, cx=cx, sp=sp, intro=not fl, k=('A' if acc else None), si=si))
     FIN = CL[-1]['t1']
 for i, c in enumerate(CL): c['i'] = i
 ACC = set(CFG.get('accents', [])) | {'A'}  # beat indices with zoom punch
 
-def crop(f, cx):
-    if LB:
-        hh = f.shape[0]; f = f[int(hh*LB):int(hh*(1-LB))]
+def crop(f, cx, lb=None):
+    lb = LB if lb is None else lb
+    if lb:
+        hh = f.shape[0]; f = f[int(hh*lb):int(hh*(1-lb))]
     h, w = f.shape[:2]; cw = h*9/16
     x = min(max(cx*w, cw/2), w-cw/2); x0 = int(round(x-cw/2))
     return f[:, x0:x0+int(round(cw))]
@@ -44,12 +48,13 @@ cache = {}
 def frames(c):
     if c['i'] in cache: return cache[c['i']]
     cache.clear()
-    n = int((c['t1']-c['t0'])*c['sp']*SF) + 4
-    cap.set(cv2.CAP_PROP_POS_MSEC, c['st']*1000); fr = []
+    si = c.get('si', 0); cp = CAPS[si]; sf = SRCS[si][2]; c['sf'] = sf
+    n = int((c['t1']-c['t0'])*c['sp']*sf) + 4
+    cp.set(cv2.CAP_PROP_POS_MSEC, c['st']*1000); fr = []
     for _ in range(n):
-        ok, f = cap.read()
+        ok, f = cp.read()
         if not ok: break
-        fr.append(crop(f, c['cx']))
+        fr.append(crop(f, c['cx'], SRCS[si][1]))
     if not fr: fr = [np.zeros((1080, 608, 3), np.uint8)]
     cache[c['i']] = fr; return fr
 
@@ -93,18 +98,23 @@ def cut_idx(t):
         if t < c['t1'] - 1e-6: return j
     return len(CL)-1
 
-STROBE = CFG.get('strobe', [])  # list of [t_start, t_end]
+STROBE = CFG.get('strobe', [])
+FI = CFG.get('flashimg')
+if FI:
+    _im = cv2.imread(FI['path']); _w = int(W*FI.get('scale', 0.7)); _im = cv2.resize(_im, (_w, int(_im.shape[0]*_w/_im.shape[1])))
+    FI['img'] = _im  # list of [t_start, t_end]
 def render(i):
     t = i/FPS
     if t >= FIN:
         a = card(t)
     else:
         c = CL[cut_idx(t)]; lt = t - c['t0']; fr = frames(c)
-        idx = min(len(fr)-1, int(lt*c['sp']*SF))
+        idx = min(len(fr)-1, int(lt*c['sp']*c.get('sf', SF)))
         img = cv2.resize(fr[idx], (W, H), interpolation=cv2.INTER_CUBIC)
         bl = cv2.GaussianBlur(img, (0, 0), 2.2); img = cv2.addWeighted(img, 1.45, bl, -0.45, 0)
         dur = c['t1'] - c['t0']
         z = 1.03 + 0.05*min(1, lt/max(dur, 0.5))            # slow push-in
+        if c['sp'] == 0: z = 1.02 + CFG.get('still_zoom', 0.12)*(1 - math.exp(-lt/max(dur, 0.3)*2.5))
         if not c['intro'] and c.get('k') in ACC:
             z += 0.10*math.exp(-lt/0.12)                     # punch
         img = scale(img, z)
@@ -118,6 +128,10 @@ def render(i):
                 ph = int((t - s0)*FPS) % 4
                 a = a*(0.25 if ph < 2 else 1.15)
         a = a*VIG
+        if FI and c['i'] % FI.get('every', 5) == FI.get('offset', 2) and lt < FI.get('frames', 3)/FPS:
+            im = FI['img']; h0 = (H-im.shape[0])//2; w0 = (W-im.shape[1])//2
+            al = FI.get('alpha', 0.35)
+            a[h0:h0+im.shape[0], w0:w0+im.shape[1]] = a[h0:h0+im.shape[0], w0:w0+im.shape[1]]*(1-al) + im.astype(np.float32)*al
     a = np.asarray(a, np.float32)
     a += np.random.RandomState(i).randn(H, W, 1).astype(np.float32)*2.5
     a = np.clip(a, 0, 255).astype(np.uint8)

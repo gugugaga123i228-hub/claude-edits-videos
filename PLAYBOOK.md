@@ -10,14 +10,15 @@ Pipeline per run:
 Limits: no tool to reply to TikTok comments or DMs; reading comments costs vidIQ credits.
 Published: jack_v1 (Jack Sparrow).
 ## Pre-made queue (already SCHEDULED in vidIQ, do NOT make a new video for these slots — just exit with a short note):
-- 2026-11-23 12:30 Kyiv: joker_v4 (Lthiago - Montagem da Chupeta)
+- 2026-11-23 12:30 Kyiv: tyler_v1 (Tyler Durden; user's own song)
+- 2026-11-25 12:30 Kyiv: joker_v4 (Lthiago - Montagem da Chupeta)
 - 2026-11-23 19:00 Kyiv: bateman (Interworld - Metamorphosis)
 - 2026-11-24 12:30 Kyiv: wick_v3 (Odetari - I'm a Blackhole)
 - 2026-11-24 19:00 Kyiv: spidey_v3 (BIA - We On Go, cinematic intro edit audio)
 vidIQ postIds (use vidiq_social_post_status to get postUrl for stats.json): joker 7603792a-ed86-4c13-a50d-c1e5447f414b, bateman d5a47600-0902-49ab-8035-7aede5d3662d, wick b6233c21-a0d8-451b-98e3-2d4a5d0098d9, spiderman 679beb42-6d10-4ebe-9da4-bafc88acb60a, jack eebe17c7-3e17-4483-ae77-c8040d0b5a85.
 Before making a video, check this list: if the current slot is listed here, do NOT make or post a video — only update stats.json (see below).
 Nice to have: if a run has spare time, it may pre-make the NEXT slot's video and schedule it with publishAt (then add it to this queue list).
-Used characters (don't repeat): Jack Sparrow, Joker (Heath Ledger), Patrick Bateman, John Wick, Spider-Man (Tom Holland). Earlier manual posts: Darth Vader, Thomas Shelby, Iron Man.
+Used characters (don't repeat): Jack Sparrow, Joker (Heath Ledger), Patrick Bateman, John Wick, Spider-Man (Tom Holland), Tyler Durden. Earlier manual posts: Darth Vader, Thomas Shelby, Iron Man.
 
 ## Text rules
 NO character name text at the start of the video (user asked). Use txt: [] in configs. Only the end card "ИИ-ЭДИТЫ @claude.edits2".
