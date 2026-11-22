@@ -1,0 +1,4 @@
+{"aud":"a_weongo.wav","src":"spidey.mp4","sf":60,"lb":0,"drop":15.23,"pre":5.5,"post":16.6,"pattern_pre":[2],
+ "pattern_post":[2,2,1,1,2,2,2,1,1,1,1,2],"cands":"cs.jpg.json",
+ "ids":[33,52,0,32,34,26,48,50,56,58,59,62,63,74,75,76,77,4,37,54,78,87,88,29,96],
+ "accents_every":4,"sat":1.15,"con":0.2,"gain":1.05}

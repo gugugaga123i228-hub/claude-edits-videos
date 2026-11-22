@@ -1,0 +1,1 @@
+{"aud": "a_chupeta.wav", "src": "joker.mp4", "sf": 30, "lb": 0.13, "drop": 33.95, "pre": 5.6, "post": 16.0, "pattern_pre": [2], "pattern_post": [2, 2, 1, 1, 2, 2, 2, 1, 1, 1, 1, 2], "cands": "cj.jpg.json", "ids": [1, 6, 3, 19, 22, 0, 2, 23, 5, 7, 24, 25, 26, 28, 29, 30, 31, 32, 36, 38, 39, 42, 43, 44, 45, 46, 47], "accents_every": 4, "sat": 1.12, "con": 0.22, "gain": 1.05}
