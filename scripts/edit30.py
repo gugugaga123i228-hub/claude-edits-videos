@@ -8,7 +8,7 @@ CFG = json.load(open(sys.argv[1])); OUT = sys.argv[2]
 PREVIEW = len(sys.argv) > 3 and sys.argv[3] == 'preview'
 W, H, FPS = 1080, 1920, 30
 DUR = CFG['dur']; N = int(round(DUR * FPS))
-A0, B, NB = CFG['a0'], CFG['b'], CFG['nb']
+A0, B, NB = CFG.get('a0',0), CFG.get('b',0.5), CFG.get('nb',0)
 def T(k): return A0 + B * k
 FIN = T(NB)
 FB = '/usr/share/fonts/opentype/inter/Inter-Black.otf'
@@ -19,14 +19,19 @@ LB = CFG.get('lb', 0)
 
 # clips: intro [[st,cx],..] spread evenly over [0,A0]; raw [[k,nb,st,cx,(speed)]]
 CL = []
-iq = A0 / len(CFG['intro'])
-for j, it in enumerate(CFG['intro']):
+iq = A0 / max(1, len(CFG.get('intro', [])))
+for j, it in enumerate(CFG.get('intro', [])):
     CL.append(dict(t0=j*iq, t1=(j+1)*iq, st=it[0], cx=it[1], sp=it[2] if len(it) > 2 else 1.0, intro=True))
-for r in CFG['raw']:
+for r in CFG.get('raw', []):
     k, nb, st, cx = r[:4]
     CL.append(dict(t0=T(k), t1=T(k+nb), st=st, cx=cx, sp=r[4] if len(r) > 4 else 1.0, intro=False, k=k))
+if 'cuts' in CFG:
+    CL = []
+    for t0, t1, st, cx, sp, acc, fl in CFG['cuts']:
+        CL.append(dict(t0=t0, t1=t1, st=st, cx=cx, sp=sp, intro=not fl, k=('A' if acc else None)))
+    FIN = CL[-1]['t1']
 for i, c in enumerate(CL): c['i'] = i
-ACC = set(CFG.get('accents', []))  # beat indices with zoom punch
+ACC = set(CFG.get('accents', [])) | {'A'}  # beat indices with zoom punch
 
 def crop(f, cx):
     if LB:
