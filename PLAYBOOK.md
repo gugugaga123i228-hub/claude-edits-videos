@@ -15,7 +15,7 @@ Published: jack_v1 (Jack Sparrow).
 - 2026-11-23 19:00 Kyiv: bateman (Interworld - Metamorphosis)
 - 2026-11-24 12:30 Kyiv: wick_v3 (Odetari - I'm a Blackhole)
 - 2026-11-24 19:00 Kyiv: spidey_v3 (BIA - We On Go, cinematic intro edit audio)
-vidIQ postIds (use vidiq_social_post_status to get postUrl for stats.json): joker 7603792a-ed86-4c13-a50d-c1e5447f414b, bateman d5a47600-0902-49ab-8035-7aede5d3662d, wick b6233c21-a0d8-451b-98e3-2d4a5d0098d9, spiderman 679beb42-6d10-4ebe-9da4-bafc88acb60a, jack eebe17c7-3e17-4483-ae77-c8040d0b5a85.
+vidIQ postIds (use vidiq_social_post_status to get postUrl for stats.json): tyler 7603792a-ed86-4c13-a50d-c1e5447f414b, joker 846a9a41-d6c4-4719-bcf2-8af373ddd346, bateman d5a47600-0902-49ab-8035-7aede5d3662d, wick b6233c21-a0d8-451b-98e3-2d4a5d0098d9, spiderman 679beb42-6d10-4ebe-9da4-bafc88acb60a, jack eebe17c7-3e17-4483-ae77-c8040d0b5a85.
 Before making a video, check this list: if the current slot is listed here, do NOT make or post a video — only update stats.json (see below).
 Nice to have: if a run has spare time, it may pre-make the NEXT slot's video and schedule it with publishAt (then add it to this queue list).
 Used characters (don't repeat): Jack Sparrow, Joker (Heath Ledger), Patrick Bateman, John Wick, Spider-Man (Tom Holland), Tyler Durden. Earlier manual posts: Darth Vader, Thomas Shelby, Iron Man.
