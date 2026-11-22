@@ -10,10 +10,10 @@ Pipeline per run:
 Limits: no tool to reply to TikTok comments or DMs; reading comments costs vidIQ credits.
 Published: jack_v1 (Jack Sparrow).
 ## Pre-made queue (already SCHEDULED in vidIQ, do NOT make a new video for these slots — just exit with a short note):
-- 2026-11-23 12:30 Kyiv: joker (Kordhell - Murder In My Mind)
+- 2026-11-23 12:30 Kyiv: joker_v2 (Lthiago - Montagem da Chupeta)
 - 2026-11-23 19:00 Kyiv: bateman (Interworld - Metamorphosis)
-- 2026-11-24 12:30 Kyiv: wick (Hensonn - Sahara)
-- 2026-11-24 19:00 Kyiv: spiderman (Tom Holland; Montagem Tomada slowed)
+- 2026-11-24 12:30 Kyiv: wick_v2 (Odetari - I'm a Blackhole)
+- 2026-11-24 19:00 Kyiv: spidey_v2 (Nova Charisma - Stolen From Each Other)
 vidIQ postIds (use vidiq_social_post_status to get postUrl for stats.json): joker 7603792a-ed86-4c13-a50d-c1e5447f414b, bateman d5a47600-0902-49ab-8035-7aede5d3662d, wick b6233c21-a0d8-451b-98e3-2d4a5d0098d9, spiderman 679beb42-6d10-4ebe-9da4-bafc88acb60a, jack eebe17c7-3e17-4483-ae77-c8040d0b5a85.
 Before making a video, check this list: if the current slot is listed here, do NOT make or post a video — only update stats.json (see below).
 Nice to have: if a run has spare time, it may pre-make the NEXT slot's video and schedule it with publishAt (then add it to this queue list).
@@ -26,3 +26,8 @@ index.html (user opens it as a home-screen app) reads stats.json from this repo.
 1. Copy current account numbers in stats.json into "previous" (followers, likes, views = sum of video views).
 2. If Windsor.ai connector 'tiktok_organic' has a connected account (get_connectors), pull followers/likes/video stats with get_fields+get_data and fill account + per-video views/likes/comments. Otherwise if vidIQ balance > 0, use vidiq_tiktok_profile + vidiq_tiktok_profile_videos (handle claude.edits2). Otherwise leave numbers as they are.
 3. Append any newly published video {title, url (from vidiq_social_post_status postUrl), posted, views,likes,comments}. Set "updated" to now (UTC ISO). Commit + push.
+
+## STYLE (user feedback 2026-11-23) — follow strictly
+- Use scripts/edit30.py (clean style). NOT edit29: user hated shake, spins, rotations, glitch/kaleido. Hard cuts on beats, static framing with slow push-in, white flash after cuts, zoom punch only on a few accent beats, strobe only on the last ~1.3 s before the drop. Emotional songs: no flash, 2-4 beat holds.
+- Songs MUST be current trends (search 'trending TikTok sounds <this month>' / tokchart.com / '#editaudio'). User was angry at a 2021 song. Liked: bateman edit.
+- Shots: clean close-ups of the main character, middle of scenes, no dark/empty/blurred frames; check the preview sheet before rendering.
