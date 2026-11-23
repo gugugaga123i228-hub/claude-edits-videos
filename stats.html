@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b0712">
+<meta name="mobile-web-app-capable" content="yes">
+<title>Claude Edits · статистика</title>
+<link rel="manifest" href="manifest.json">
+<style>
+:root{--bg:#0b0712;--card:#160f24;--card2:#1e1432;--line:#2c1f47;--txt:#efe9ff;--mut:#9c8cc2;--acc:#a855f7;--acc2:#7c3aed;--good:#34d399;--bad:#f87171}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:radial-gradient(120% 60% at 50% -10%,#2a1050 0%,var(--bg) 60%);color:var(--txt);font-family:system-ui,-apple-system,"Roboto",sans-serif;min-height:100vh;padding:18px 14px 40px}
+.wrap{max-width:520px;margin:0 auto}
+header{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.logo{width:46px;height:46px;border-radius:14px;background:linear-gradient(135deg,var(--acc),var(--acc2));display:grid;place-items:center;font-weight:800;font-size:20px;box-shadow:0 6px 24px #7c3aed66}
+h1{font-size:19px;font-weight:700}
+.sub{color:var(--mut);font-size:12.5px;margin-top:2px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.card{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:18px;padding:14px}
+.big{grid-column:1/-1}
+.lbl{color:var(--mut);font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+.val{font-size:30px;font-weight:800;margin-top:6px;letter-spacing:-.02em}
+.val.s{font-size:24px}
+.delta{font-size:12px;margin-top:4px;color:var(--good)}
+.delta.neg{color:var(--bad)}
+.vid{display:flex;gap:12px;align-items:center;margin-top:10px}
+.thumb{width:54px;height:72px;border-radius:10px;background:linear-gradient(160deg,#3b1d6e,#140c22);flex:none;display:grid;place-items:center;font-size:22px}
+.vt{font-weight:600;font-size:14.5px;line-height:1.3}
+.vm{color:var(--mut);font-size:12.5px;margin-top:4px}
+a{color:inherit;text-decoration:none}
+.list .row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-top:1px solid var(--line);font-size:14px}
+.list .row:first-of-type{border-top:0}
+.pill{font-size:11.5px;padding:3px 9px;border-radius:99px;background:#a855f722;color:#d8b4fe;border:1px solid #a855f744}
+.next{display:flex;justify-content:space-between;align-items:center}
+.note{color:var(--mut);font-size:12px;text-align:center;margin-top:18px;line-height:1.5}
+.badge-top{color:#fbbf24}.badge-low{color:#93c5fd}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo">C</div>
+    <div>
+      <h1>@claude.edits2</h1>
+      <div class="sub" id="upd">Загрузка…</div>
+    </div>
+  </header>
+
+  <div class="grid">
+    <div class="card"><div class="lbl">Подписчики</div><div class="val" id="fol">—</div><div class="delta" id="fold"></div></div>
+    <div class="card"><div class="lbl">Лайки всего</div><div class="val" id="lik">—</div><div class="delta" id="likd"></div></div>
+    <div class="card"><div class="lbl">Просмотры</div><div class="val" id="vw">—</div><div class="delta" id="vwd"></div></div>
+    <div class="card"><div class="lbl">Видео</div><div class="val" id="cnt">—</div><div class="delta" id="cntd"></div></div>
+
+    <div class="card big"><div class="lbl badge-top">🏆 Самое популярное</div><div id="top"></div></div>
+    <div class="card big"><div class="lbl badge-low">🧊 Самое непопулярное</div><div id="low"></div></div>
+
+    <div class="card big next"><div><div class="lbl">Следующее видео</div><div class="val s" id="nxt">—</div></div><span class="pill" id="nxtn"></span></div>
+
+    <div class="card big list"><div class="lbl" style="margin-bottom:6px">Последние видео</div><div id="lst"></div></div>
+  </div>
+  <div class="note" id="note"></div>
+</div>
+<script>
+const SRC='https://raw.githubusercontent.com/gugugaga123i228-hub/claude-edits-videos/main/stats.json';
+const f=n=>n==null?'—':n>=1e6?(n/1e6).toFixed(1).replace('.0','')+'M':n>=1e4?(n/1e3).toFixed(1).replace('.0','')+'K':n.toLocaleString('ru-RU');
+const $=id=>document.getElementById(id);
+function d(el,cur,prev){if(cur==null||prev==null)return;const x=cur-prev;el.textContent=(x>=0?'+':'')+f(x)+' с прошлого обновления';el.className='delta'+(x<0?' neg':'')}
+function vid(v){if(!v)return '<div class="vm" style="margin-top:8px">Пока нет данных</div>';
+ return `<a class="vid" href="${v.url||'#'}"><div class="thumb">🎬</div><div><div class="vt">${v.title}</div><div class="vm">👁 ${f(v.views)} · ❤ ${f(v.likes)} · 💬 ${f(v.comments)}</div></div></a>`}
+function nextSlot(){const now=new Date(new Date().toLocaleString('en-US',{timeZone:'Europe/Kiev'}));
+ for(let i=0;i<8;i++){const d=new Date(now);d.setDate(now.getDate()+i);const wd=d.getDay();if(wd===5||wd===6)continue;
+  for(const [h,m] of [[12,30],[19,0]]){const t=new Date(d);t.setHours(h,m,0,0);if(t>now){const dn=['вс','пн','вт','ср','чт','пт','сб'][wd];return (i===0?'сегодня':i===1?'завтра':dn)+' '+String(h).padStart(2,'0')+':'+String(m).padStart(2,'0')}}}return '—'}
+const FALLBACK={
+  "updated": "2026-11-23T17:03:43Z",
+  "account": {
+    "followers": null,
+    "likes": null,
+    "videos": null
+  },
+  "previous": {
+    "followers": null,
+    "likes": null,
+    "views": null
+  },
+  "videos": [
+    {
+      "title": "Джек Воробей",
+      "url": "https://www.tiktok.com/@claude.edits2/video/7711112434546691335",
+      "posted": "22 ноя",
+      "views": null,
+      "likes": null,
+      "comments": null
+    },
+    {
+      "title": "Тайлер Дёрден",
+      "url": "https://www.tiktok.com/@claude.edits2/video/7711312289156042004",
+      "posted": "23 ноя",
+      "views": null,
+      "likes": null,
+      "comments": null
+    },
+    {
+      "title": "Патрик Бейтман",
+      "url": "https://www.tiktok.com/@claude.edits2/video/7711413052909964551",
+      "posted": "23 ноя",
+      "views": null,
+      "likes": null,
+      "comments": null
+    }
+  ],
+  "note": "Цифры появятся после подключения TikTok в Windsor.ai. Обновляется при каждой публикации (12:30 и 19:00, кроме пт и сб)."
+};
+async function load(){
+ try{let s;try{const r=await fetch(SRC+'?t='+Date.now(),{cache:'no-store'});s=await r.json();}catch(e){s=FALLBACK}
+  const a=s.account||{},p=s.previous||{};const vs=(s.videos||[]);
+  $('fol').textContent=f(a.followers);$('lik').textContent=f(a.likes);
+  const tv=vs.reduce((x,v)=>x+(v.views||0),0);$('vw').textContent=vs.some(v=>v.views!=null)?f(tv):'—';
+  $('cnt').textContent=f(a.videos??vs.length);
+  d($('fold'),a.followers,p.followers);d($('likd'),a.likes,p.likes);d($('vwd'),vs.some(v=>v.views!=null)?tv:null,p.views);
+  const wv=vs.filter(v=>v.views!=null).sort((x,y)=>y.views-x.views);
+  $('top').innerHTML=vid(wv[0]);$('low').innerHTML=vid(wv.length>1?wv[wv.length-1]:null);
+  $('lst').innerHTML=vs.slice().reverse().slice(0,8).map(v=>`<a class="row" href="${v.url||'#'}"><span>${v.title}</span><span class="pill">${v.posted||''}</span></a>`).join('')||'<div class="vm">Пусто</div>';
+  const u=s.updated?new Date(s.updated):null;
+  $('upd').textContent=u?'Обновлено '+u.toLocaleString('ru-RU',{timeZone:'Europe/Kiev',day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}):'—';
+  $('note').textContent=s.note||'';
+ }catch(e){$('upd').textContent='Нет связи, покажу при следующем открытии'}
+ $('nxt').textContent=nextSlot();$('nxtn').textContent='пт и сб — выходные';
+}
+load();setInterval(load,5*60*1000);
+</script>
+</body>
+</html>
