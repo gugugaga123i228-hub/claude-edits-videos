@@ -25,7 +25,7 @@ NO character name text at the start of the video (user asked). Use txt: [] in co
 ## Stats dashboard (do this EVERY run, even when the slot is pre-scheduled)
 index.html (user opens it as a home-screen app) reads stats.json from this repo. Each run:
 1. Copy current account numbers in stats.json into "previous" (followers, likes, views = sum of video views).
-2. If Windsor.ai connector 'tiktok_organic' has a connected account (get_connectors), pull followers/likes/video stats with get_fields+get_data and fill account + per-video views/likes/comments. Otherwise if vidIQ balance > 0, use vidiq_tiktok_profile + vidiq_tiktok_profile_videos (handle claude.edits2). Otherwise leave numbers as they are.
+2. Windsor.ai connector 'tiktok_organic' is connected to claude.edits2 (trial: only last 30 days, use date_preset last_30dT). If it has a connected account (get_connectors), pull followers/likes/video stats with get_fields+get_data and fill account + per-video views/likes/comments. Otherwise if vidIQ balance > 0, use vidiq_tiktok_profile + vidiq_tiktok_profile_videos (handle claude.edits2). Otherwise leave numbers as they are.
 3. Append any newly published video {title, url (from vidiq_social_post_status postUrl), posted, views,likes,comments}. Set "updated" to now (UTC ISO). Commit + push.
 
 ## STYLE (user feedback 2026-11-23) — follow strictly
@@ -38,3 +38,5 @@ index.html (user opens it as a home-screen app) reads stats.json from this repo.
 2. scripts/cands.py scan.json pack.mp4 cands.jpg 0.75  -> numbered crop sheet of shots centred on the detected face. LOOK at it and pick only ids that show THE main character clearly (drop other people, dark, empty).
 3. Write spec (see configs/joker4.spec.json, spidey3.spec.json): song wav, drop time (song seconds), pre 5.5, post ~16, ids in order. scripts/assemble.py spec out.json  (cuts snap to librosa beats).
 4. scripts/edit30.py out.json preview.jpg preview -> check every tile has the character -> render.
+
+Stats source: Windsor get_data fields account [username,total_followers_count,total_likes,videos_count] (date_preset last_7dT) and video [video_id,video_caption,video_create_datetime,video_views_count,video_likes,video_comments] (last_30dT). Also rebuild stats.html FALLBACK block with the same JSON.

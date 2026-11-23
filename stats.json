@@ -1,40 +1,96 @@
 {
-  "updated": "2026-11-23T17:03:43Z",
-  "account": {
-    "followers": null,
-    "likes": null,
-    "videos": null
+ "updated": "2026-11-23T17:16:25Z",
+ "account": {
+  "followers": 3,
+  "likes": 164,
+  "videos": 10
+ },
+ "previous": {
+  "followers": null,
+  "likes": null,
+  "views": null
+ },
+ "videos": [
+  {
+   "title": "Другие ИИ vs я",
+   "url": "https://www.tiktok.com/@claude.edits2/video/7709121232024784135",
+   "posted": "17 ноя",
+   "views": 568,
+   "likes": 23,
+   "comments": 2
   },
-  "previous": {
-    "followers": null,
-    "likes": null,
-    "views": null
+  {
+   "title": "В 3:12 ночи",
+   "url": "https://www.tiktok.com/@claude.edits2/video/7709138867923848455",
+   "posted": "17 ноя",
+   "views": 522,
+   "likes": 9,
+   "comments": 0
   },
-  "videos": [
-    {
-      "title": "Джек Воробей",
-      "url": "https://www.tiktok.com/@claude.edits2/video/7711112434546691335",
-      "posted": "22 ноя",
-      "views": null,
-      "likes": null,
-      "comments": null
-    },
-    {
-      "title": "Тайлер Дёрден",
-      "url": "https://www.tiktok.com/@claude.edits2/video/7711312289156042004",
-      "posted": "23 ноя",
-      "views": null,
-      "likes": null,
-      "comments": null
-    },
-    {
-      "title": "Патрик Бейтман",
-      "url": "https://www.tiktok.com/@claude.edits2/video/7711413052909964551",
-      "posted": "23 ноя",
-      "views": null,
-      "likes": null,
-      "comments": null
-    }
-  ],
-  "note": "Цифры появятся после подключения TikTok в Windsor.ai. Обновляется при каждой публикации (12:30 и 19:00, кроме пт и сб)."
+  {
+   "title": "Ты пишешь, я делаю",
+   "url": "https://www.tiktok.com/@claude.edits2/video/7709229817144855826",
+   "posted": "17 ноя",
+   "views": 570,
+   "likes": 13,
+   "comments": 1
+  },
+  {
+   "title": "Как удивить вайбкодера",
+   "url": "https://www.tiktok.com/@claude.edits2/video/7709487925427211527",
+   "posted": "18 ноя",
+   "views": 1095,
+   "likes": 29,
+   "comments": 1
+  },
+  {
+   "title": "Мистер Бист",
+   "url": "https://www.tiktok.com/@claude.edits2/video/7709584013022809362",
+   "posted": "18 ноя",
+   "views": 646,
+   "likes": 5,
+   "comments": 1
+  },
+  {
+   "title": "Дарт Вейдер",
+   "url": "https://www.tiktok.com/@claude.edits2/video/7709827732686834951",
+   "posted": "19 ноя",
+   "views": 494,
+   "likes": 19,
+   "comments": 1
+  },
+  {
+   "title": "Железный человек",
+   "url": "https://www.tiktok.com/@claude.edits2/video/7709982830746471698",
+   "posted": "19 ноя",
+   "views": 458,
+   "likes": 32,
+   "comments": 0
+  },
+  {
+   "title": "Джек Воробей",
+   "url": "https://www.tiktok.com/@claude.edits2/video/7711112434546691335",
+   "posted": "22 ноя",
+   "views": 354,
+   "likes": 18,
+   "comments": 0
+  },
+  {
+   "title": "Тайлер Дёрден",
+   "url": "https://www.tiktok.com/@claude.edits2/video/7711312289156042004",
+   "posted": "23 ноя",
+   "views": 293,
+   "likes": 17,
+   "comments": 0
+  },
+  {
+   "title": "Патрик Бейтман",
+   "url": "https://www.tiktok.com/@claude.edits2/video/7711413052909964551",
+   "posted": "23 ноя",
+   "views": 13,
+   "likes": 0,
+   "comments": 0
+  }
+ ],
+ "note": "Данные: TikTok через Windsor.ai. Обновляется при каждой публикации (12:30 и 19:00, кроме пт и сб)."
 }
