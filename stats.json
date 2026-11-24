@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-23T17:16:25Z",
+ "updated": "2026-11-24T10:33:16Z",
  "account": {
   "followers": 3,
-  "likes": 164,
-  "videos": 10
+  "likes": 175,
+  "videos": 11
  },
  "previous": {
-  "followers": null,
-  "likes": null,
-  "views": null
+  "followers": 3,
+  "likes": 164,
+  "views": 5013
  },
  "videos": [
   {
@@ -39,7 +39,7 @@
    "title": "Как удивить вайбкодера",
    "url": "https://www.tiktok.com/@claude.edits2/video/7709487925427211527",
    "posted": "18 ноя",
-   "views": 1095,
+   "views": 1098,
    "likes": 29,
    "comments": 1
   },
@@ -47,7 +47,7 @@
    "title": "Мистер Бист",
    "url": "https://www.tiktok.com/@claude.edits2/video/7709584013022809362",
    "posted": "18 ноя",
-   "views": 646,
+   "views": 647,
    "likes": 5,
    "comments": 1
   },
@@ -71,7 +71,7 @@
    "title": "Джек Воробей",
    "url": "https://www.tiktok.com/@claude.edits2/video/7711112434546691335",
    "posted": "22 ноя",
-   "views": 354,
+   "views": 358,
    "likes": 18,
    "comments": 0
   },
@@ -79,7 +79,7 @@
    "title": "Тайлер Дёрден",
    "url": "https://www.tiktok.com/@claude.edits2/video/7711312289156042004",
    "posted": "23 ноя",
-   "views": 293,
+   "views": 296,
    "likes": 17,
    "comments": 0
   },
@@ -87,7 +87,15 @@
    "title": "Патрик Бейтман",
    "url": "https://www.tiktok.com/@claude.edits2/video/7711413052909964551",
    "posted": "23 ноя",
-   "views": 13,
+   "views": 330,
+   "likes": 11,
+   "comments": 0
+  },
+  {
+   "title": "Джон Уик",
+   "url": "https://www.tiktok.com/@claude.edits2/video/7711683364738141460",
+   "posted": "24 ноя",
+   "views": 1,
    "likes": 0,
    "comments": 0
   }
