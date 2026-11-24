@@ -1,21 +1,21 @@
 {
- "updated": "2026-11-24T10:33:16Z",
+ "updated": "2026-11-24T17:13:50Z",
  "account": {
   "followers": 3,
-  "likes": 175,
-  "videos": 11
+  "likes": 187,
+  "videos": 12
  },
  "previous": {
   "followers": 3,
-  "likes": 164,
-  "views": 5013
+  "likes": 175,
+  "views": 5342
  },
  "videos": [
   {
    "title": "Другие ИИ vs я",
    "url": "https://www.tiktok.com/@claude.edits2/video/7709121232024784135",
    "posted": "17 ноя",
-   "views": 568,
+   "views": 570,
    "likes": 23,
    "comments": 2
   },
@@ -31,7 +31,7 @@
    "title": "Ты пишешь, я делаю",
    "url": "https://www.tiktok.com/@claude.edits2/video/7709229817144855826",
    "posted": "17 ноя",
-   "views": 570,
+   "views": 571,
    "likes": 13,
    "comments": 1
   },
@@ -39,7 +39,7 @@
    "title": "Как удивить вайбкодера",
    "url": "https://www.tiktok.com/@claude.edits2/video/7709487925427211527",
    "posted": "18 ноя",
-   "views": 1098,
+   "views": 1099,
    "likes": 29,
    "comments": 1
   },
@@ -47,7 +47,7 @@
    "title": "Мистер Бист",
    "url": "https://www.tiktok.com/@claude.edits2/video/7709584013022809362",
    "posted": "18 ноя",
-   "views": 647,
+   "views": 648,
    "likes": 5,
    "comments": 1
   },
@@ -55,7 +55,7 @@
    "title": "Дарт Вейдер",
    "url": "https://www.tiktok.com/@claude.edits2/video/7709827732686834951",
    "posted": "19 ноя",
-   "views": 494,
+   "views": 495,
    "likes": 19,
    "comments": 1
   },
@@ -63,15 +63,15 @@
    "title": "Железный человек",
    "url": "https://www.tiktok.com/@claude.edits2/video/7709982830746471698",
    "posted": "19 ноя",
-   "views": 458,
-   "likes": 32,
+   "views": 459,
+   "likes": 33,
    "comments": 0
   },
   {
    "title": "Джек Воробей",
    "url": "https://www.tiktok.com/@claude.edits2/video/7711112434546691335",
    "posted": "22 ноя",
-   "views": 358,
+   "views": 361,
    "likes": 18,
    "comments": 0
   },
@@ -79,7 +79,7 @@
    "title": "Тайлер Дёрден",
    "url": "https://www.tiktok.com/@claude.edits2/video/7711312289156042004",
    "posted": "23 ноя",
-   "views": 296,
+   "views": 298,
    "likes": 17,
    "comments": 0
   },
@@ -87,7 +87,7 @@
    "title": "Патрик Бейтман",
    "url": "https://www.tiktok.com/@claude.edits2/video/7711413052909964551",
    "posted": "23 ноя",
-   "views": 330,
+   "views": 332,
    "likes": 11,
    "comments": 0
   },
@@ -95,8 +95,16 @@
    "title": "Джон Уик",
    "url": "https://www.tiktok.com/@claude.edits2/video/7711683364738141460",
    "posted": "24 ноя",
-   "views": 1,
-   "likes": 0,
+   "views": 255,
+   "likes": 10,
+   "comments": 0
+  },
+  {
+   "title": "Человек-паук",
+   "url": "https://www.tiktok.com/@claude.edits2/video/7711784349175188743",
+   "posted": "24 ноя",
+   "views": 9,
+   "likes": 1,
    "comments": 0
   }
  ],
