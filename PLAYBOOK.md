@@ -15,10 +15,11 @@ Published: jack_v1 (Jack Sparrow).
 - 2026-11-23 19:00 Kyiv: bateman (Interworld - Metamorphosis)
 - 2026-11-24 12:30 Kyiv: wick_v3 (Odetari - I'm a Blackhole)
 - 2026-11-24 19:00 Kyiv: spidey_v3 (BIA - We On Go, cinematic intro edit audio)
+- 2026-11-25 19:00 Kyiv: gta6_v4 (GTA 6 Jason & Lucia; user's sound from the m0NESY edit reference)
 vidIQ postIds (use vidiq_social_post_status to get postUrl for stats.json): tyler 7603792a-ed86-4c13-a50d-c1e5447f414b, joker 846a9a41-d6c4-4719-bcf2-8af373ddd346, bateman d5a47600-0902-49ab-8035-7aede5d3662d, wick b6233c21-a0d8-451b-98e3-2d4a5d0098d9, spiderman 679beb42-6d10-4ebe-9da4-bafc88acb60a, jack eebe17c7-3e17-4483-ae77-c8040d0b5a85.
 Before making a video, check this list: if the current slot is listed here, do NOT make or post a video — only update stats.json (see below).
 Nice to have: if a run has spare time, it may pre-make the NEXT slot's video and schedule it with publishAt (then add it to this queue list).
-Used characters (don't repeat): Jack Sparrow, Joker (Heath Ledger), Patrick Bateman, John Wick, Spider-Man (Tom Holland), Tyler Durden. Earlier manual posts: Darth Vader, Thomas Shelby, Iron Man.
+Used characters (don't repeat): GTA 6 Jason & Lucia, Jack Sparrow, Joker (Heath Ledger), Patrick Bateman, John Wick, Spider-Man (Tom Holland), Tyler Durden. Earlier manual posts: Darth Vader, Thomas Shelby, Iron Man.
 
 ## Text rules
 NO character name text at the start of the video (user asked). Use txt: [] in configs. Only the end card "ИИ-ЭДИТЫ @claude.edits2".
@@ -27,6 +28,10 @@ index.html (user opens it as a home-screen app) reads stats.json from this repo.
 1. Copy current account numbers in stats.json into "previous" (followers, likes, views = sum of video views).
 2. Windsor.ai connector 'tiktok_organic' is connected to claude.edits2 (trial: only last 30 days, use date_preset last_30dT). If it has a connected account (get_connectors), pull followers/likes/video stats with get_fields+get_data and fill account + per-video views/likes/comments. Otherwise if vidIQ balance > 0, use vidiq_tiktok_profile + vidiq_tiktok_profile_videos (handle claude.edits2). Otherwise leave numbers as they are.
 3. Append any newly published video {title, url (from vidiq_social_post_status postUrl), posted, views,likes,comments}. Set "updated" to now (UTC ISO). Commit + push.
+
+## STYLE v4 (user feedback 2026-11-25) — overrides older style notes below
+- User called the slow 0.8 s-cut GTA edit 'no edit at all'. What worked (gta6_v4, scripts/edit32.py, configs/gta6_v4.json): copy the CUT TIMES of a reference edit that uses the same sound; ~5 s calm intro (1-2 shots), then a cut every ~0.36 s on the drop; alternate freeze-frame stills (v=0, slow push-in) with 1x video; punch-in zoom + motion blur + 2-3 frame RGB split on each cut; glow; NO white flashes, NO spins, NO shake. End: last shot blurs/dissolves into the purple card (end_tr 1.1).
+- Always verify that no clip runs past a cut in the source (check frame diffs) and that the character is in every tile.
 
 ## STYLE (user feedback 2026-11-23) — follow strictly
 - Use scripts/edit30.py (clean style). NOT edit29: user hated shake, spins, rotations, glitch/kaleido. Hard cuts on beats, static framing with slow push-in, white flash after cuts, zoom punch only on a few accent beats, strobe only on the last ~1.3 s before the drop. Emotional songs: no flash, 2-4 beat holds.
