@@ -1,21 +1,21 @@
 {
- "updated": "2026-11-25T10:33:16Z",
+ "updated": "2026-11-25T17:14:23Z",
  "account": {
   "followers": 4,
-  "likes": 211,
-  "videos": 13
+  "likes": 213,
+  "videos": 14
  },
  "previous": {
-  "followers": 3,
-  "likes": 187,
-  "views": 5619
+  "followers": 4,
+  "likes": 211,
+  "views": 5978
  },
  "videos": [
   {
    "title": "Другие ИИ vs я",
    "url": "https://www.tiktok.com/@claude.edits2/video/7709121232024784135",
    "posted": "17 ноя",
-   "views": 572,
+   "views": 573,
    "likes": 23,
    "comments": 2
   },
@@ -39,7 +39,7 @@
    "title": "Как удивить вайбкодера",
    "url": "https://www.tiktok.com/@claude.edits2/video/7709487925427211527",
    "posted": "18 ноя",
-   "views": 1099,
+   "views": 1103,
    "likes": 29,
    "comments": 1
   },
@@ -47,7 +47,7 @@
    "title": "Мистер Бист",
    "url": "https://www.tiktok.com/@claude.edits2/video/7709584013022809362",
    "posted": "18 ноя",
-   "views": 648,
+   "views": 649,
    "likes": 5,
    "comments": 1
   },
@@ -55,7 +55,7 @@
    "title": "Дарт Вейдер",
    "url": "https://www.tiktok.com/@claude.edits2/video/7709827732686834951",
    "posted": "19 ноя",
-   "views": 495,
+   "views": 496,
    "likes": 19,
    "comments": 1
   },
@@ -103,7 +103,7 @@
    "title": "Человек-паук",
    "url": "https://www.tiktok.com/@claude.edits2/video/7711784349175188743",
    "posted": "24 ноя",
-   "views": 362,
+   "views": 364,
    "likes": 25,
    "comments": 0
   },
@@ -111,7 +111,15 @@
    "title": "Джокер",
    "url": "https://www.tiktok.com/@claude.edits2/video/7712054448729754901",
    "posted": "25 ноя",
-   "views": 0,
+   "views": 56,
+   "likes": 2,
+   "comments": 0
+  },
+  {
+   "title": "GTA 6: Джейсон и Люсия",
+   "url": "https://www.tiktok.com/@claude.edits2/video/7712155814181555508",
+   "posted": "25 ноя",
+   "views": 19,
    "likes": 0,
    "comments": 0
   }
