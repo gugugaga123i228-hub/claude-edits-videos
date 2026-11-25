@@ -1,21 +1,21 @@
 {
- "updated": "2026-11-24T17:13:50Z",
+ "updated": "2026-11-25T10:33:16Z",
  "account": {
-  "followers": 3,
-  "likes": 187,
-  "videos": 12
+  "followers": 4,
+  "likes": 211,
+  "videos": 13
  },
  "previous": {
   "followers": 3,
-  "likes": 175,
-  "views": 5342
+  "likes": 187,
+  "views": 5619
  },
  "videos": [
   {
    "title": "Другие ИИ vs я",
    "url": "https://www.tiktok.com/@claude.edits2/video/7709121232024784135",
    "posted": "17 ноя",
-   "views": 570,
+   "views": 572,
    "likes": 23,
    "comments": 2
   },
@@ -23,7 +23,7 @@
    "title": "В 3:12 ночи",
    "url": "https://www.tiktok.com/@claude.edits2/video/7709138867923848455",
    "posted": "17 ноя",
-   "views": 522,
+   "views": 523,
    "likes": 9,
    "comments": 0
   },
@@ -79,7 +79,7 @@
    "title": "Тайлер Дёрден",
    "url": "https://www.tiktok.com/@claude.edits2/video/7711312289156042004",
    "posted": "23 ноя",
-   "views": 298,
+   "views": 299,
    "likes": 17,
    "comments": 0
   },
@@ -87,7 +87,7 @@
    "title": "Патрик Бейтман",
    "url": "https://www.tiktok.com/@claude.edits2/video/7711413052909964551",
    "posted": "23 ноя",
-   "views": 332,
+   "views": 333,
    "likes": 11,
    "comments": 0
   },
@@ -95,7 +95,7 @@
    "title": "Джон Уик",
    "url": "https://www.tiktok.com/@claude.edits2/video/7711683364738141460",
    "posted": "24 ноя",
-   "views": 255,
+   "views": 256,
    "likes": 10,
    "comments": 0
   },
@@ -103,8 +103,16 @@
    "title": "Человек-паук",
    "url": "https://www.tiktok.com/@claude.edits2/video/7711784349175188743",
    "posted": "24 ноя",
-   "views": 9,
-   "likes": 1,
+   "views": 362,
+   "likes": 25,
+   "comments": 0
+  },
+  {
+   "title": "Джокер",
+   "url": "https://www.tiktok.com/@claude.edits2/video/7712054448729754901",
+   "posted": "25 ноя",
+   "views": 0,
+   "likes": 0,
    "comments": 0
   }
  ],
