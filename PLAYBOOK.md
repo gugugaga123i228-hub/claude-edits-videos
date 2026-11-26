@@ -8,7 +8,7 @@ Pipeline per run:
 4. Commit mp4 to videos/<name>.mp4 and push to main (releases are blocked). URL: https://raw.githubusercontent.com/gugugaga123i228-hub/claude-edits-videos/main/videos/<name>.mp4
 5. vidiq_video_upload(url) -> vidiq_social_post_draft_create (TIKTOK, platformAccountId _0006fSz6eYpBAcoC72Bz2Te9kilRSbMXwqG, PUBLIC_TO_EVERYONE, allowComment true, musicUsageConfirmed true, isAiGenerated true) -> vidiq_social_post_publish -> vidiq_social_post_status.
 Limits: no tool to reply to TikTok comments or DMs; reading comments costs vidIQ credits.
-Published: jack_v1 (Jack Sparrow).
+Published: jack_v1 (Jack Sparrow), walter_v1 (Walter White, 2026-11-26 12:30, edit32, pack YT aqImaO460I4, audio YT mw7R4RLmBg4 @384-404.5s).
 ## Pre-made queue (already SCHEDULED in vidIQ, do NOT make a new video for these slots — just exit with a short note):
 - 2026-11-23 12:30 Kyiv: tyler_v1 (Tyler Durden; user's own song)
 - 2026-11-25 12:30 Kyiv: joker_v4 (Lthiago - Montagem da Chupeta)
@@ -19,7 +19,7 @@ Published: jack_v1 (Jack Sparrow).
 vidIQ postIds (use vidiq_social_post_status to get postUrl for stats.json): tyler 7603792a-ed86-4c13-a50d-c1e5447f414b, joker 846a9a41-d6c4-4719-bcf2-8af373ddd346, bateman d5a47600-0902-49ab-8035-7aede5d3662d, wick b6233c21-a0d8-451b-98e3-2d4a5d0098d9, spiderman 679beb42-6d10-4ebe-9da4-bafc88acb60a, jack eebe17c7-3e17-4483-ae77-c8040d0b5a85, gta6 b2564f38-0b46-4286-a71f-17b7b1026f50.
 Before making a video, check this list: if the current slot is listed here, do NOT make or post a video — only update stats.json (see below).
 Nice to have: if a run has spare time, it may pre-make the NEXT slot's video and schedule it with publishAt (then add it to this queue list).
-Used characters (don't repeat): GTA 6 Jason & Lucia, Jack Sparrow, Joker (Heath Ledger), Patrick Bateman, John Wick, Spider-Man (Tom Holland), Tyler Durden. Earlier manual posts: Darth Vader, Thomas Shelby, Iron Man.
+Used characters (don't repeat): Walter White (Breaking Bad), GTA 6 Jason & Lucia, Jack Sparrow, Joker (Heath Ledger), Patrick Bateman, John Wick, Spider-Man (Tom Holland), Tyler Durden. Earlier manual posts: Darth Vader, Thomas Shelby, Iron Man.
 
 ## Text rules
 NO character name text at the start of the video (user asked). Use txt: [] in configs. Only the end card "ИИ-ЭДИТЫ @claude.edits2".
