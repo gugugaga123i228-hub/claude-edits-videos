@@ -23,6 +23,10 @@ Used characters (don't repeat): Walter White (Breaking Bad), GTA 6 Jason & Lucia
 
 ## Text rules
 NO character name text at the start of the video (user asked). Use txt: [] in configs. Only the end card "ИИ-ЭДИТЫ @claude.edits2".
+## Cleanup rule (user, 2026-11-26) — check EVERY run
+A video that is 48 h old or more gets deleted if it has fewer than 10 likes OR fewer than 200 views (even 100k views with <10 likes = delete).
+Neither TikTok's API, vidIQ nor Windsor can delete videos. So: if Claude in Chrome tools are available, open the video on tiktok.com (signed in as claude.edits2) and delete it via the ... menu; otherwise put it in stats.json "to_delete" [{title,url,posted,views,likes}] (the dashboard shows a red card) and remove entries once they no longer appear in Windsor data. Never delete a video younger than 48 h.
+
 ## Stats dashboard (do this EVERY run, even when the slot is pre-scheduled)
 index.html (user opens it as a home-screen app) reads stats.json from this repo. Each run:
 1. Copy current account numbers in stats.json into "previous" (followers, likes, views = sum of video views).

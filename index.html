@@ -60,6 +60,7 @@ a{color:inherit;text-decoration:none}
 
     <div class="card big list"><div class="lbl" style="margin-bottom:6px">Последние видео</div><div id="lst"></div></div>
   </div>
+    <div class="card big list" id="delc" style="display:none"><div class="lbl badge-low" style="margin-bottom:6px">🗑 Удалить (слабый актив за 2 дня)</div><div id="del"></div></div>
   <div class="note" id="note"></div>
 </div>
 <script>
@@ -85,6 +86,7 @@ async function load(){
   const u=s.updated?new Date(s.updated):null;
   $('upd').textContent=u?'Обновлено '+u.toLocaleString('ru-RU',{timeZone:'Europe/Kiev',day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}):'—';
   $('note').textContent=s.note||'';
+  {const td=s.to_delete||[];if(td.length){$('delc').style.display='';$('del').innerHTML=td.map(v=>'<a href="'+v.url+'" target="_blank" style="display:block;color:inherit;text-decoration:none;padding:6px 0">'+v.title+' <span style="opacity:.6">· '+v.views+' просм. · '+v.likes+' ♥ · '+v.posted+'</span></a>').join('')}}
  }catch(e){$('upd').textContent='Нет связи, покажу при следующем открытии'}
  $('nxt').textContent=nextSlot();$('nxtn').textContent='пт и сб — выходные';
 }
