@@ -8,7 +8,7 @@ Pipeline per run:
 4. Commit mp4 to videos/<name>.mp4 and push to main (releases are blocked). URL: https://raw.githubusercontent.com/gugugaga123i228-hub/claude-edits-videos/main/videos/<name>.mp4
 5. vidiq_video_upload(url) -> vidiq_social_post_draft_create (TIKTOK, platformAccountId _0006fSz6eYpBAcoC72Bz2Te9kilRSbMXwqG, PUBLIC_TO_EVERYONE, allowComment true, musicUsageConfirmed true, isAiGenerated true) -> vidiq_social_post_publish -> vidiq_social_post_status.
 Limits: no tool to reply to TikTok comments or DMs; reading comments costs vidIQ credits.
-Published: jack_v1 (Jack Sparrow), walter_v1 (Walter White, 2026-11-26 12:30, edit32, pack YT aqImaO460I4, audio YT mw7R4RLmBg4 @384-404.5s).
+Published: jack_v1 (Jack Sparrow), walter_v1 (Walter White, 2026-11-26 12:30, postId 4e9d7e19-25c4-4a94-8013-168e9a0c0f35, edit32, pack YT aqImaO460I4, audio YT mw7R4RLmBg4 @384-404.5s).
 ## Pre-made queue (already SCHEDULED in vidIQ, do NOT make a new video for these slots — just exit with a short note):
 - 2026-11-23 12:30 Kyiv: tyler_v1 (Tyler Durden; user's own song)
 - 2026-11-25 12:30 Kyiv: joker_v4 (Lthiago - Montagem da Chupeta)
