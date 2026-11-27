@@ -24,6 +24,17 @@ Used characters (don't repeat): Batman (Robert Pattinson), Homelander, Walter Wh
 
 ## Text rules
 NO character name text at the start of the video (user asked). Use txt: [] in configs. Only the end card "ИИ-ЭДИТЫ @claude.edits2".
+## FRIDAY 19:00 — «Гоша, Саня и хуйня» cartoon skit (user request 2026-11-27)
+Every Friday the scheduled run makes ONE new cartoon skit (not an edit) and publishes it at 19:00 Kyiv. Saturday stays off. Sun-Thu edit slots are unchanged.
+- Format = the user's reference (2D cartoon dialogue, big white UPPERCASE captions 1-2 words at a time near the top, lots of swearing, absurd exaggeration, slapstick finale). Our own characters, code in skits/gosha_sanya_redmi/ (chars.py draws them, render.py renders; copy the folder and adapt DIR/inserts/cards):
+  - Гоша: green tracksuit, brown spiky hair, cracked Redmi 9A with tape; loud, absurdly overhypes his stuff.
+  - Саня: blond, sunglasses, gold chain, black hoodie, "iPhone Duo"; screams back with mats that his thing is better.
+  - Закадровый голос (narrator): documentary intro card, one mid insert, final verdict card.
+- Each week a NEW topic (Гоша vs Саня about anything: телефоны, ноуты, машины, школа, Minecraft vs Roblox, еда, etc.), 60-110 s, both characters scream with mats, end with a slapstick punchline. Done topics: Redmi 9A vs iPhone Duo (2026-11-27).
+- Voices: ElevenLabs creative_generate_speech, model eleven_v4, generations_count 1, ONE call per character with all its lines separated by "\n\n[long pause]\n\n" and emotion tags like [орёт]. Гоша = VlXLedwkU4YDM3HBGpiI (Miron), Саня = gRp20jh5cr1dR3Lhhapi (Alexey I), narrator = pM78bgjPVk0JXtaEnFoj (Nester). Get the mp3 via creative_get_flow_run_status (content_url). Split lines with librosa.effects.split(top_db=38), merging gaps < 0.45 s; check the count matches. NEVER pitch-shift (user: voices sounded distorted).
+- Publish: push mp4 to videos/, vidiq_video_upload(raw url), draft with TikTok public, comments on, musicUsageConfirmed true, isAiGenerated true, publishAt Friday 19:00 Europe/Kyiv, then publish. Caption: "Гоша, Саня и хуйня: <тема> 💀 #гошаисаня ..." (<=5 hashtags).
+- Posted: 2026-11-27 skit_redmi_vs_iphone, postId 0deecf3c-3cb1-4370-9fd6-2721b6973633.
+
 ## Cleanup rule (user, 2026-11-26) — check EVERY run
 A video that is 48 h old or more gets deleted if it has fewer than 10 likes OR fewer than 200 views (even 100k views with <10 likes = delete).
 Neither TikTok's API, vidIQ nor Windsor can delete videos. So: if Claude in Chrome tools are available, open the video on tiktok.com (signed in as claude.edits2) and delete it via the ... menu; otherwise put it in stats.json "to_delete" [{title,url,posted,views,likes}] (the dashboard shows a red card) and remove entries once they no longer appear in Windsor data. Never delete a video younger than 48 h.
