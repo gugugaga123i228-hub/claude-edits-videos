@@ -90,6 +90,7 @@ def grade(a):
     if LUT is None:
         x = np.arange(256)/255.0; s = x + 0.22*(x-0.5)*(1-abs(2*x-1))*2
         LUT = np.clip(s*255, 0, 255).astype(np.uint8)
+    if CFG.get('gain', 1.0) != 1.0: a = cv2.convertScaleAbs(a, alpha=CFG['gain'], beta=CFG.get('lift', 0))
     a = cv2.LUT(a, LUT).astype(np.float32)
     # teal shadows / warm highlights
     lum = a.mean(2, keepdims=True)/255.0
